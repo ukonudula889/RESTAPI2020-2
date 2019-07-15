@@ -44,6 +44,8 @@ app.set('views', __dirname + '/views');
 
 //Route
 app.get('/map', (req, resp) => {
+
+	 // NOTE: coords hold the coordinates for the map
     const coord = {
         lat: parseFloat(req.query.lat),
         lon: parseFloat(req.query.lon)
@@ -69,6 +71,9 @@ app.get('/map', (req, resp) => {
 });
 
 app.get('/information', (req, resp) => {
+
+	 //Note: cityName holds the cityName, to be used
+	 //in params below
     const cityName = req.query.cityName;
 
     //TODO 1/3: Add query parameters for OpenWeatherMap
