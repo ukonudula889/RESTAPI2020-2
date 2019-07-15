@@ -85,6 +85,7 @@ app.get('/information', (req, resp) => {
 
     getWeather(params)
         .then(result => {
+			   // NOTE: countryCode holds the 2 character country code
             const countryCode = result.sys.country.toLowerCase();
 
             //TODO 2/3: Add query parameters for News API
