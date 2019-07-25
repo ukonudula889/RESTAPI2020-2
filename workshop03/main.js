@@ -48,11 +48,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/schema', express.static(join(__dirname, 'schema')));
 
 app.use((error, req, resp, next) => {
-	if (error instanceof ValidationError)
+	if (error instanceof ValidationError) {
+		console.error('Schema validation error: ', error)
 		return resp.status(400).type('application/json').json({ error: error });
-	else if (error.status)
+	}
+
+	else if (error.status) {
+		console.error('OpenAPI specification error: ', error)
 		return resp.status(400).type('application/json').json({ error: error });
-	next();
+	}
+
+	console.error('Error: ', error);
+	resp.status(400).type('application/json').json({ error: error });
 });
 
 db.getDB()

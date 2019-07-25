@@ -46,6 +46,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Optional workshop
 // TODO HEAD /api/state/:state
+// IMPORTANT: HEAD must be place before GET for the
+// same resource. Otherwise the GET handler will be invoked
 
 
 
