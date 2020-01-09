@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const f = function(config) {
 	this.config = config;
-	this.client = new MongoClient(config.connectionUrl, { useNewUrlParser: true })
+	this.client = new MongoClient(config.connectionUrl, { useNewUrlParser: true , useUnifiedTopology : true})
 }
 
 f.prototype.getDB = function() {
